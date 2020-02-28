@@ -45,13 +45,19 @@ class Rogue(Hero):
         return 'Name: {}\nClass: {}\nHit Points: {}\nAttack: {}\nDefence: {}\nExperience points: {}\nInventory: {}' \
             .format(self.name, self.basic_class, self.hp, self.attack, self.defence, self.experience, self.inventory)
 
+    @staticmethod
+    def sneak():
+        print("...")
+
 
 hero1 = Warrior('Conan', 'Warrior', 30, 20, 15, 10000, {'sword', 'leather sandals'})
 hero2 = Wizard('Amarok', 'Wizard', 20, 14, 10, 11000, {'staff +1', 'robe'})
+hero3 = Rogue('Garrett', 'Thief', 22,17, 16, 12000, {'blackjack', 'bow'})
 
 hero1.warcry()
 hero2.chant()
-
+hero3.sneak()
 
 print(hero1)
 print(hero2)
+print(hero3)
