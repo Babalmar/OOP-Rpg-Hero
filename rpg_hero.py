@@ -60,9 +60,17 @@ class Warrior(Hero):
     def warcry():
         print("Raaaa!")
 
-    # @classmethod
-    # def recruit(cls):
-    #    return cls()
+    @classmethod
+    def recruit(cls):
+        return cls(Hero.name(), Dice.k20(), Dice.k12(), Dice.k10(), 0, {'short sword', 'leather helmet'})
+
+    @classmethod
+    def veteran(cls):
+        return cls(Hero.name(), Dice.k20(), Dice.k12(), Dice.k10(), 5000, {'sword', 'shield'})
+
+    @classmethod
+    def champion(cls):
+        return cls(Hero.name(), Dice.k20(), Dice.k12(), Dice.k10(), 10000, {'broadsword', 'chainmail'})
 
 
 class Wizard(Hero):
@@ -73,6 +81,18 @@ class Wizard(Hero):
     def chant():
         print("Ka namaa fthan Cthulhu!")
 
+    @classmethod
+    def apprentice(cls):
+        return cls(Hero.name(), Dice.k10(), Dice.k6(), Dice.k8(), 0, {'staff', 'robe'})
+
+    @classmethod
+    def practitioner(cls):
+        return cls(Hero.name(), Dice.k10(), Dice.k6(), Dice.k8(), 5000, {'quarterstaff', 'robe'})
+
+    @classmethod
+    def mage(cls):
+        return cls(Hero.name(), Dice.k10(), Dice.k6(), Dice.k8(), 10000, {'ebony staff', 'robe'})
+
 
 class Rogue(Hero):
     def __init__(self, name, hp, attack, defence, experience, inventory):
@@ -82,10 +102,22 @@ class Rogue(Hero):
     def sneak():
         print("...")
 
+    @classmethod
+    def pickpocket(cls):
+        return cls(Hero.name(), Dice.k12(), Dice.k8(), Dice.k10(), 0, {'blackjack', 'brass knuckles'})
 
-hero1 = Warrior(Hero.name(), Dice.k20(), Dice.k12(), Dice.k10(), 10000, {'sword', 'leather sandals'})
-hero2 = Wizard(Hero.name(), Dice.k10(), Dice.k6(), Dice.k8(), 11000, {'staff +1', 'robe'})
-hero3 = Rogue(Hero.name(), Dice.k12(), Dice.k8(), Dice.k10(), 12000, {'blackjack', 'bow'})
+    @classmethod
+    def thug(cls):
+        return cls(Hero.name(), Dice.k12(), Dice.k8(), Dice.k10(), 5000, {'dagger', 'bow'})
+
+    @classmethod
+    def master_thief(cls):
+        return cls(Hero.name(), Dice.k12(), Dice.k8(), Dice.k10(), 10000, {'slingshot', 'poisoned darts'})
+
+
+hero1 = Warrior.recruit()
+hero2 = Wizard.mage()
+hero3 = Rogue.thug()
 
 hero1.warcry()
 hero2.chant()
