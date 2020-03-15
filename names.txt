@@ -76,3 +76,6 @@ Snakebait
 Tarfen
 Titch
 Whim
+Conan
+Garret
+Amarok

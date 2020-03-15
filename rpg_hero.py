@@ -42,6 +42,20 @@ class Hero:
         return 'Name: {}Hit Points: {}\nAttack: {}\nDefence: {}\nExperience points: {}\nInventory: {}'\
             .format(self.name, self.hp, self.attack, self.defence, self.experience, self.inventory)
 
+    @property
+    def experience(self):
+        return self._experience
+
+    @experience.setter
+    def experience(self, value):
+        if isinstance(value, int):
+            if value < 0:
+                self._experience = 0
+            else:
+                self._experience = value
+        else:
+            print('Experience must be a integer value')
+
     @staticmethod
     def name():
         names_list = []
@@ -126,3 +140,10 @@ hero3.sneak()
 print(hero1)
 print(hero2)
 print(hero3)
+
+print(hero1.experience)
+hero1.experience = 'a'
+hero1.experience = -2
+print(hero1.experience)
+hero1.experience = 1000
+print(hero1.experience)
